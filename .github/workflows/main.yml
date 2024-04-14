@@ -1,0 +1,13 @@
+name: CI
+on:
+  push:
+    branches: [ '**' ]
+jobs:
+  test_codebases:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run tests on codebase
+        run: python3 -m pip install --upgrade pip
+        run: pip install -r requirements.txt
+        run: pytest
